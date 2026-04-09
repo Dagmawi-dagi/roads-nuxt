@@ -6,12 +6,12 @@ const { darkTheme } = useUtilStore()
 <template>
   <nav>
     <div class="container">
-      <img @click="$router.push('/')" src="/assets/images/desta-logo.png" alt="logo" >
+      <img @click="$router.push('/')" src="/assets/images/rodas-logo.png" alt="logo" >
       <MazBtn @click="darkTheme = !darkTheme , setTheme(darkTheme)" :size="'mini'">Button</MazBtn>
     </div>
   </nav>
 </template>
 
 <style scoped lang="scss">
-@use '/assets/style//localsite/topnav.scss' as *;
+@use '/assets/style/localsite/topnav.scss' as *;
 </style>

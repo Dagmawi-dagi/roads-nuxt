@@ -8,6 +8,12 @@ const expand = computed(()=>{
   return false
 })
 
+const { start, stop, pause, resume, remainingTime } = useTimer({
+  timeout: 4000,
+  callback: () => console.log('Timeout end')
+})
+const { toggleDarkMode, isDark } = useTheme()
+
 </script>
 
 <template>
