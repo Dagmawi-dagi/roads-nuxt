@@ -1,0 +1,62 @@
+@use "@/assets/style/variables" as *;
+@use "@/assets/style/mixins" as *;
+
+
+.accordion-Container{
+  width: 100%;
+  margin-top: 5px;
+  border-top: 1px solid #52525952;
+  padding-top: 10px;
+  color: var(--text-dark-gray);
+  font-size: 100%;
+  cursor: pointer;
+
+  &.deep_acc{
+    border: 0px;
+    padding: 0px;
+    margin: 5px 0; 
+  }
+}
+
+.accoordion-header{
+  // @include flexbox($justify-content:space-between);
+  @include dotdotdot();
+  padding-right: 10px;
+  
+  &[icon=false]::after{
+    content: '\002B';
+    position: absolute;
+    right: 0;
+  }
+
+  &.accordionOpen[icon=false]::after{
+    content: '\2212';
+    position: absolute;
+    right: 0;
+  }
+  & .AccTogglerIcon{
+    display: inline-block;
+    width: calc(0.2vw + 15px);
+    position: absolute;
+    right: -5px;
+  }
+
+}
+
+
+.accoordion-content{
+  max-height: 0;
+  overflow: hidden;
+  padding-left: 10px;
+  margin-left: 5px;
+  transition: max-height 0.3s ease-out;
+
+  & .accoordion-item{
+    @include dotdotdot();
+    display: block;
+    text-decoration: none;
+    margin: 5px 0;
+    font-size: 100%;
+  }
+}
+

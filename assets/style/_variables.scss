@@ -1,0 +1,50 @@
+// bg-colors
+$bg-white: #fff;
+$bg-light-blue: #e7edf8;
+$bg-dark-blue: #111827;
+$bg-dark-blue2:#161f32;
+// text
+$text-dark-gray: #353A3C;
+$text-light-gray: #959595;
+// border-colors
+$border-light: #e5e7eb;
+$border-light-blue:#C1DEFF;
+$border-dark-blue:#111827;
+// other colors
+$light-gray: #707070;
+$green: #9CFF2E;
+$modal: #000000b3;
+$mazui-primary:#1f8fff;
+$mazui-secondary:#9116fe;
+$mazui-info:#17a4ba;
+$mazui-success:#99cd32;
+$mazui-warning:#fcb831;
+$mazui-destructive:#ff6e6b;
+$mazui-accent:#1cce9f;
+//--------- measurments -----------//
+$localsite-top-nav-1-height: 50px;
+$localsite-side-nav-width: min( 250px,90%);
+// Z-index
+$zindex-localsite-top-nav-1-height: 9;
+$zindex-modal: 999999999999;
+$zindex-localsite-side-nav: 99;
+//----------------------------------//
+:root {
+  --bg-white:#{$bg-white};
+  --bg-light-blue:#{$bg-light-blue};
+
+  --text-light-gray: #{$text-light-gray};
+  --text-dark-gray: #{$text-dark-gray};
+
+  --border-light-blue :#{$border-light-blue};
+}
+
+[darkTheme=true]{
+  --bg-white: #{$bg-dark-blue};
+  --bg-light-blue:#{$bg-dark-blue2};
+
+  --text-light-gray: #{$text-dark-gray};
+  --text-dark-gray: #{$text-light-gray};
+
+  --border-light-blue :#{$border-dark-blue};
+}

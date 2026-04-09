@@ -1,0 +1,70 @@
+@use "@/assets/style/variables" as *;
+@use "@/assets/style/mixins" as *;
+@use "@/assets/style/animations" as *;
+
+
+.container {
+  position: relative;
+  background-color: var(--bg-light-blue);
+  color: var(--text-dark-gray);
+  width: $localsite-side-nav-width;
+  height: calc(100vh - $localsite-top-nav-1-height);
+  padding: 32px 32px 96px;
+  overflow: auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: calc(0.1vw + 13px);
+  font-weight: 600;
+  @include scrollbar;
+
+  &.open {
+    transform: translateX(0);
+    transition:
+      transform 0.5s ease-in-out,
+      background-color 0.2s ease-in-out,
+      color 0.2s ease-in-out;
+  }
+
+  &.close {
+    transform: translateX(-100%);
+    transition: all 0.8s ;
+    & + .sideNavToggler {
+      right: calc(100vw - 25px);
+      left: 0;
+    }
+  }
+
+  &.position {
+    position: absolute;
+    z-index: $zindex-localsite-side-nav;
+  }
+}
+
+.sideNavToggler {
+  @include transition($prop: (left: 0.5s));
+  @include flexbox;
+  background-color: var(--light-blue);
+  color: var(--text-dark-gray);
+  position: absolute;
+  box-shadow: rgba(0, 0, 0, 0.1) 2px 0px 5px 2px;
+  cursor: pointer;
+  top: 5px;
+  left: $localsite-side-nav-width;
+  width: 20px;
+  height: 40px;
+  border-radius: 0 5px 5px 0;
+  z-index: 99;
+}
+.userContainer{
+  @include flexbox($justify-content:left);
+  position: relative;
+  width: 100%;
+  gap: .2rem;
+}
+
+.user{
+  @include transition($prop: onlytheme);
+  display: flex;
+  flex-direction: column;
+  font-size: 85%;
+  color: var(--text-dark-gray);
+}

@@ -1,0 +1,334 @@
+// global.scss
+@use './variables' as *;
+@use './mixins' as *;
+@use './base' as *;
+@use './fonts';
+@use './animations' as *;
+
+// for the v-diag comp(global error handling front End feed back)
+ .global_error{
+        padding: 7px;
+        & .v-dialog-body.toast-error{
+          background-color: #fff  !important;
+          color: var(--dark-red)!important;
+          border-color: var(--dark-red)!important;
+        }
+      }
+      .global_success{
+        color: var(--text-dark-gray)!important;
+      }
+
+.route-container{
+  @include transition($prop: 'onlytheme');
+  margin: 0 1rem;
+  padding: 10px 10px;
+  background-color: var(--white);
+  color: var(--text-dark-gray);
+  min-height: 100%;
+}
+
+.err-msg{
+  color: $mazui-destructive;
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.succ-msg{
+  color: lightgreen;
+  text-transform: uppercase;
+}
+
+// ---------------------for maz ui tabs-----------------------------//
+.tabs-container{
+  .tabs_bar{
+    @include transition($prop: (border-color: .2s) );
+    background-color: var(--white);
+    color: var(--text-dark-gray);
+    padding: 0;
+    border-radius: 0;
+    border: 1px solid var(--border-light-blue);
+    
+    box-shadow:unset !important;
+    // overflow: hidden;
+
+    :deep(.m-tabs-bar__indicator){
+      background-color: var(--bg-light-blue);
+      border-radius: 0;
+    }
+  
+    :deep(.m-tabs-bar__item){
+      background-color: transparent;
+      @include transition($prop: onlytheme);
+      color:var(--text-dark-gray) !important;
+      &:hover{
+        color:var(--text-dark-gray) !important;
+      }
+    }
+
+  
+    :deep(+ .m-tabs-content){
+      // min-height: 200px;
+      max-height: 500px;
+      padding: 10px 0;
+      transition: height 1s ease;
+      .m-tabs-content-item{
+        transition: unset !important;
+      }
+    }
+  
+  }
+  
+  .info{
+    @include transition($prop: (border-color:.2s) );
+    height: 25px;
+    max-height: 25px;
+    align-content:center;
+    margin-top: 0px;
+    border-bottom: 1px solid var(--border-light-blue);
+    border-left-color: var(--white);
+    border-right-color: var(--white);
+    color: var(--text-dark-gray);
+  
+    &::after{
+      content: '';
+      display: block;
+      position: absolute;
+      top: 3px;
+      bottom: 3px;
+      left:  max(23%,110px)  ;
+      width: 1px;
+      background-color: $bg-dark-blue;
+    }
+  
+    .info-content{
+      position: absolute;
+      top: 3px;
+      bottom: 3px;
+      left: max(24%,115px);
+    }
+  }
+}
+
+// ---------------------END for maz ui tabs-----------------------------//
+// ------------horizontalSeparator------------///
+.horizontalSeparator{
+  width: 100%;
+  height: 1px;
+  // background-color: var(--light-blue);
+  margin: 10px;
+}
+// ----------END of horizontalSeparator------------//
+.dataList_head{
+  color: $mazui-primary;
+  font-size:150%;
+  text-transform: capitalize;
+}
+
+//----------------style for the RinputOne && chooseFile  comp----------------------------//
+
+
+.RInputOne{
+  margin-left: 0;
+  :deep(input){
+      background-color: var(--light-blue);
+      color: var( --text-dark-gray);
+      border: 1px solid var(--border-light-blue);
+      padding: 5px 10px;
+      width: min(90%,400px);
+  }
+}
+
+.chooseFile{
+  margin-left: 0;
+  :deep(button){
+      background-color: var(--light-blue);
+      color: var( --text-dark-gray);
+      border: 1px solid var(--border-light-blue);
+  }
+
+  :deep(.fileName){
+      background-color: var(--light-blue);
+      color: var( --text-dark-gray);
+      border: 1px solid var(--border-light-blue);
+  }
+}
+
+
+.selectInput{
+  @include transition(onlytheme);
+  margin-left: 0;
+
+  width: min(90%,400px);
+
+
+  :deep(.dropdownInput){
+      background-color: var(--light-blue);
+      color: var( --text-dark-gray);
+      border: 1px solid var(--border-light-blue);
+      padding:  5px 10px;
+      @include transition($prop: (border-color: .2s));
+  }
+
+  :deep(.dropdownInputItems-container){
+      @include transition($prop: (border-color: .2s));
+      // background-color: var(--light-blue);
+      // color: var( --text-dark-gray);
+      border: 1px solid var(--border-light-blue);
+  }
+
+  :deep(.dropdownInput-items){
+      background-color: var(--white);
+      color: var( --text-dark-gray);
+      @include transition($prop: (border-color: .2s));
+      &:hover{
+          background-color: var(--light-blue);
+      }
+  }  
+
+  :deep(.err-msg){
+      font-size: 12px;
+  }
+}
+
+/* Main Quill Content Styling */
+:deep(.quill-html-content) {
+  margin: auto;
+  margin-top: 10px;
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  background: #fff;
+  border-radius: 8px;
+  overflow-wrap: break-word;
+
+  // Responsive adjustments
+  @media (max-width: 768px) {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  /* Paragraphs & Text Formatting */
+  p {
+    margin: 10px 0;
+  }
+
+  b, strong {
+    font-weight: bold;
+  }
+
+  i, em {
+    font-style: italic;
+  }
+
+  u {
+    text-decoration: underline;
+  }
+
+  s {
+    text-decoration: line-through;
+  }
+
+  blockquote {
+    border-left: 4px solid #888;
+    padding: 10px 15px;
+    margin: 15px 0;
+    background: #f9f9f9;
+    font-style: italic;
+  }
+
+  /* Links */
+  a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+
+    &:hover {
+      color: #0056b3;
+      text-decoration: underline;
+    }
+  }
+
+  /* Lists */
+  ul, ol {
+    padding-left: 20px;
+    margin: 10px 0;
+  }
+
+  ul {
+    list-style-type: disc;
+  }
+
+  ol {
+    list-style-type: decimal;
+  }
+
+  li {
+    margin-bottom: 5px;
+  }
+
+  /* Images */
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    display: block;
+    margin: 10px 0;
+  }
+  
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+  }
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+
+  /* Code Blocks */
+  pre {
+    background: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+  }
+
+  code {
+    font-family: "Courier New", monospace;
+    background: #f1f1f1;
+    padding: 3px 5px;
+    border-radius: 4px;
+  }
+
+  /* Alignment */
+  .ql-align-center {
+    text-align: center;
+  }
+
+  .ql-align-right {
+    text-align: right;
+  }
+
+  .ql-align-justify {
+    text-align: justify;
+  }
+
+  /* Embedded Videos */
+  iframe {
+    max-width: 100%;
+    border-radius: 8px;
+    margin: 10px 0;
+  }
+}
+

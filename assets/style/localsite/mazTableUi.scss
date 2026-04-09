@@ -1,0 +1,82 @@
+@use '../variables' as *;
+
+  .myTableHeader{
+    display: flex;
+    gap: 1rem;
+    margin-left: 2rem;
+    color: $mazui-primary;
+  }
+
+  .MyMazTable :deep(.trancate) {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  // Style the actions column
+  .MyMazTable :deep(.actions-column) {
+    width: 100px; // Fixed width for actions column
+    position: relative;
+  }
+
+  // Actions container styling
+  .MyMazTable :deep(.actions-container) {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 0.5rem;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    padding: 4px;
+    border-radius: 4px;
+    z-index: 10;
+  }
+
+  // Show actions on row hover
+  .MyMazTable :deep(tbody tr:hover) .actions-container {
+    opacity: 1;
+  }
+
+  // Ensure the buttons are small
+  .MyMazTable :deep(.actions-container .m-btn) {
+    min-width: max-content;
+  }
+ /* Column resizing styles */
+.MyMazTable :deep(th) {
+  position: relative;
+  user-select: none;
+}
+
+.MyMazTable :deep(.resize-handle) {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 8px;
+  height: 100%;
+  background: transparent;
+  cursor: col-resize;
+  z-index: 20;
+  transition: background-color 0.2s ease;
+}
+
+.MyMazTable :deep(.resize-handle:hover) {
+  background-color: #cce7ff;
+}
+
+.MyMazTable :deep(th):hover::after {
+  content: '';
+  position: absolute;
+  top: 25%;
+  right: 0;
+  height: 50%;
+  width: 2px;
+  background-color: #e0e0e0;
+}
+
+/* Disable pointer events on sort indicators when resizing */
+body.resizing-column .MyMazTable :deep(th *) {
+  pointer-events: none;
+}
