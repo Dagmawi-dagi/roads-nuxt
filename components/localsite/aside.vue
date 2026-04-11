@@ -57,7 +57,7 @@ const sideBarNavs = ref([
 </script>
 
 <template>
-    <div class="container" :class="{ position:  tablet || mobilePhone , open: sideBarOpen, close: !sideBarOpen  }"  >
+    <div class=" container maz-bg-background " :class="{ position:  tablet || mobilePhone , open: sideBarOpen, close: !sideBarOpen  }"  >
       <div class="userContainer" >
           <MazAvatar :src="`/users/${loggedInUser?.avatar}`" 
           :caption="loggedInUser?.userName"
@@ -87,7 +87,14 @@ const sideBarNavs = ref([
           @accActive="active_acc === obj.role ? active_acc = '' :  active_acc = $event" 
           @handleAccChoice="$router.push({name: $event.route_name})"
         />
+  <div class="maz-bg-background p-8 maz-text-foreground">
+    <!-- Components are auto-imported -->
+     asdasdasd sd asd
+    <MazBtn color="primary" >
+      asdasd
+    </MazBtn>
 
+   </div> 
     </div>
 
 
@@ -97,6 +104,8 @@ const sideBarNavs = ref([
         <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
       </svg>
     </span>
+
+
 
 </template>
 

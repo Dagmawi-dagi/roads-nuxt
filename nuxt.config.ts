@@ -2,22 +2,29 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-05-15',
   devtools: { enabled: false },
-  ssr: false, // NOT SSR
+  ssr: true, 
   modules: ['@vueuse/nuxt', '@pinia/nuxt', 'nuxt-easy-lightbox', '@vueform/nuxt','@maz-ui/nuxt', '@nuxtjs/sitemap'],
   sitemap: {},
   css: ['@/assets/style/global.scss'],
   mazUi: {
     // Theme System
+    general: {
+      // Enable Nuxt DevTools integration
+      devtools: true,
+    },
+
     theme: {
-      preset: 'ocean', // Choose: 'mazUi', 'ocean', 'pristine', 'obsidian'
+      preset: 'mazUi', // Choose: 'mazUi', 'ocean', 'pristine', 'obsidian'
       strategy: 'hybrid', // 'runtime' | 'buildtime' | 'hybrid'
       darkModeStrategy: 'class', // 'class' | 'media' | 'auto'
+      mode: 'both', // 'light' | 'dark' | 'both' (supported color modes)
+      colorMode: 'light', // 'auto' | 'light' | 'dark' (initial color mode, only if mode is 'both')
     },
 
     // Translations
     translations: {
-      locale: 'fr', // Default language
-      fallbackLocale: 'en',
+      locale: 'en', // Default language
+      fallbackLocale: 'fr',
     },
 
     // Components (all enabled by default)
@@ -47,7 +54,7 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      title: 'RODAS',
+      title: 'ro...',
       meta: [],
     }
   }

@@ -1,61 +1,7 @@
 @use './variables' as *;
 @use "sass:meta";
 @use "sass:color";
-@mixin button($bg-color, $text-color, $cssvar: false ) {
-  // width  height shoud Not be included
-  min-width: 50px;
 
-  background-color: getColor($bg-color,$cssvar);
-  color: getColor($text-color,$cssvar);
-  font-family: inherit;
-  font-size: 100%;
-
-  border: 2px solid transparent;
-  border-radius: 3px;
-  
-  padding:5px 10px ;
-  text-align: center;
-
-  display: inline-block;
-
-  text-decoration: none;
-  user-select: none;
-  
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s, border-color 0.3s, color 0.3s, box-shadow 0.3s;
-
-  cursor: pointer;
-
-  // Accessibility improvements
-  &:focus {
-    outline: none;
-  }
-
-  &:hover {
-    filter: brightness(110%);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-    transition: filter .3s;
-  }
-
-  &:active {
-    filter: brightness(90%);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    transition: filter .3s;
-  }
-
-  &:focus-visible {
-    outline: 2px solid $mazui-primary;
-    outline-offset: 2px;
-    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
-  }
-
-  &:disabled {
-    filter: brightness(100%);
-    cursor: not-allowed;
-    opacity: 0.6;
-  }
-
-}
 
 @mixin flexbox($display: flex, $direction: row, $justify-content: center, $align-items: center) {
   display: $display;
@@ -63,12 +9,6 @@
   justify-content: $justify-content;
   align-items: $align-items;
 }
-
-@mixin border($width: 1px, $style: solid, $color: red, $radius: 0px) {
-  border: $width $style $color;
-  border-radius: $radius;
-}
-
 // pass like @include transition(0.3s, (opacity: 0.4s, transform: 0.6s, width: 0.5s));
 @mixin transition($delay: .2s, $prop: onlytheme) {
   @if $prop == onlytheme {
@@ -82,12 +22,6 @@
     }
     transition: #{$transitions};
   }
-}
-
-@mixin focus-01($color: #318cc8, $lighten: 30) {
-  box-shadow: 0 0 0px .5px lighten($color, $lighten);
-  border: 1px solid lighten($color, $lighten - 10);
-  transition: border .2s ease;
 }
 
 @mixin dotdotdot() {
@@ -115,12 +49,3 @@
     // background-color: red;
   }
 }
-
-@function getColor($color,$cssvar) {
-  @if $cssvar{
-    @return  var(--#{$color});
-  }
-  @else {
-    @return $color
-  }
-};

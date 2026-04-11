@@ -8,12 +8,6 @@ const expand = computed(()=>{
   return false
 })
 
-const { start, stop, pause, resume, remainingTime } = useTimer({
-  timeout: 4000,
-  callback: () => console.log('Timeout end')
-})
-const { toggleDarkMode, isDark } = useTheme()
-
 </script>
 
 <template>
@@ -27,10 +21,8 @@ const { toggleDarkMode, isDark } = useTheme()
 </template>
 
 <style scoped lang="scss">
-
 @use "@/assets/style/variables" as *;
 @use "@/assets/style/mixins" as *;
-
 
 .main{
   display: flex;

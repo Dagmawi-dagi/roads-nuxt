@@ -123,6 +123,7 @@ useResizableColumns(tableRef, {
       </div>
     </template>
   </MazTable>
+
 </template>
 
 <style scoped lang="scss">

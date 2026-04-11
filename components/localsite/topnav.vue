@@ -1,13 +1,14 @@
 <script setup>
-const { setTheme } = use_set_theme()
-const { darkTheme } = useUtilStore()
+const { toggleDarkMode } = useTheme()
 </script>
 
 <template>
   <nav>
     <div class="container">
       <img @click="$router.push('/')" src="/assets/images/rodas-logo.png" alt="logo" >
-      <MazBtn @click="darkTheme = !darkTheme , setTheme(darkTheme)" :size="'mini'">Button</MazBtn>
+        <MazSwitch
+          @click="toggleDarkMode"
+        />
     </div>
   </nav>
 </template>

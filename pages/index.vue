@@ -1,5 +1,4 @@
-<script setup se>
-
+<script setup>
 definePageMeta({
   layout: "clean",   
   name: "home",
